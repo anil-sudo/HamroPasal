@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId(user_id)->constrained()->cascadeOnDelete();
-            $table->foreignId(dokan_id)->constrained()->cascadeOnDelete();
+            $table->foreignId("user_id")->constrained()->cascadeOnDelete();
+            $table->foreignId("dokan_id")->constrained()->cascadeOnDelete();
             $table->enum('status', ['pending', 'processing', 'delivered'])->default('pending');
             $table->string('payment_status')->default('pending');
             $table->double('total_amount');
