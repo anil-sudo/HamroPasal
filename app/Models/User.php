@@ -31,4 +31,14 @@ class User extends Authenticatable
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    } 
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+    public function carts(){
+        return $this->hasMany(Cart::class);
+    }
 }

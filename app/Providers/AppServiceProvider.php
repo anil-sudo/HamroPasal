@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->configureDefaults();
-    }
+     Model::unguard();
+         }
 
     /**
      * Configure default behaviors for production-ready applications.
