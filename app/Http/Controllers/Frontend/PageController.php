@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Dokan;
+use App\Models\Admin;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\DokanRequestNotification;
 
 class PageController extends Controller
 {
@@ -28,7 +31,10 @@ class PageController extends Controller
         $dokan->contact_no = $request->contact_no;
         $dokan->message = $request->message;
         $dokan->save();
-
+        $admins = Admin::all();
+        foreach($admins as $admin){
+            Mail::to($admin->email)->send(new DokanRequestNotification($dokan));
+        }
         alert()->toast("Registration successful", "success");
 
         return redirect()->route('home');
