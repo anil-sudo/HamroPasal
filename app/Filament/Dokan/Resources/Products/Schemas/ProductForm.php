@@ -12,20 +12,16 @@ class ProductForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
+                section::make('Product Details')
+                ->schema([
+                     TextInput::make('name')
                     ->required(),
                 TextInput::make('slug')
                     ->required(),
-                Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-                Textarea::make('images')
-                    ->required()
-                    ->columnSpanFull(),
                 TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('Rs'),
                 TextInput::make('discount')
                     ->required()
                     ->numeric()
@@ -33,6 +29,16 @@ class ProductForm
                 TextInput::make('dokan_id')
                     ->required()
                     ->numeric(),
-            ]);
+                Textarea::make('description')
+                    ->required()
+                    ->columnSpanFull(),
+                Textarea::make('images')
+                    ->required()
+                    ->columnSpanFull(),
+
+
+            
+                ])
+            ])
     }
 }
