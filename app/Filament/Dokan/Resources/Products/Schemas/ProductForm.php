@@ -2,6 +2,9 @@
 
 namespace App\Filament\Dokan\Resources\Products\Schemas;
 
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -12,11 +15,12 @@ class ProductForm
     {
         return $schema
             ->components([
-                section::make('Product Details')
+                Section::make('Product Details')
                 ->schema([
                      TextInput::make('name')
                     ->required(),
                 TextInput::make('slug')
+                    ->hiddenOn('create')
                     ->required(),
                 TextInput::make('price')
                     ->required()
@@ -24,21 +28,21 @@ class ProductForm
                     ->prefix('Rs'),
                 TextInput::make('discount')
                     ->required()
+                    ->suffix('%')
                     ->numeric()
                     ->default(0),
                 TextInput::make('dokan_id')
                     ->required()
                     ->numeric(),
-                Textarea::make('description')
+                RichEditor::make('description')
                     ->required()
                     ->columnSpanFull(),
-                Textarea::make('images')
+                FileUpload::make('images')
+                    ->multiple()
+                    ->imageEditor()
                     ->required()
                     ->columnSpanFull(),
-
-
-            
-                ])
-            ])
+                ])->columnSpanFull()->columns(2),
+            ]);
     }
 }

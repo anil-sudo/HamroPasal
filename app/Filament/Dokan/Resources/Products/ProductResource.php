@@ -2,6 +2,9 @@
 
 namespace App\Filament\Dokan\Resources\Products;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
+use Override;
 use App\Filament\Dokan\Resources\Products\Pages\CreateProduct;
 use App\Filament\Dokan\Resources\Products\Pages\EditProduct;
 use App\Filament\Dokan\Resources\Products\Pages\ListProducts;
@@ -21,6 +24,12 @@ class ProductResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Cube;
 
     protected static ?string $recordTitleAttribute = 'name';
+
+        #[Override]
+            public static function getEloquentQuery(): Builder
+        {
+            return Product::where('dokan_id', Auth::guard('dokan')->user()->id);
+        }
 
     public static function form(Schema $schema): Schema
     {

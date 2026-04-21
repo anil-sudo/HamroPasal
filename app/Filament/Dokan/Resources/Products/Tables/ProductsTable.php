@@ -16,15 +16,12 @@ class ProductsTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
+ 
                 TextColumn::make('price')
-                    ->money()
+                    ->prefix('Rs.')
                     ->sortable(),
                 TextColumn::make('discount')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('dokan_id')
+                    ->suffix('%')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
