@@ -22,8 +22,11 @@ class EditDokan extends EditRecord
 
 protected function mutateFormDataBeforeSave(array $data): array
 {
-    if ($data['status'] === 'approved') {
-
+    // Check if status is being changed to 'approved'
+    if (
+        $data['status'] === 'approved' &&
+        $this->record->status !== 'approved'
+    ) {
         $password = rand(10000, 99999);
 
         $data["password"] = Hash::make($password);
