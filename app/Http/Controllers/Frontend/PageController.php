@@ -41,4 +41,30 @@ class PageController extends Controller
     {
          return view('categories.deals');
     }
+
+    public function menFashion()
+    {
+         return view('categories.fashion.men');
+    }
+
+    public function womenFashion()
+    {
+         return view('categories.fashion.women');
+    }
+
+     public function kidsFashion()
+     {
+           return view('categories.fashion.kids');
+    }
+
+     public function accessoriesFashion()
+     {
+           return view('categories.fashion.accessories');
+     }
+
+
+     public function menShirts()
+     {
+           return view('categories.fashion.men.t-shirt');
+     }
 }

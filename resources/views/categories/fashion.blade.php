@@ -42,23 +42,38 @@
         </div>
     </div>
 
-    {{-- =========================================================
-        3. CATEGORY GRID
-    ========================================================= --}}
-    <div class="max-w-7xl mx-auto px-4 mt-10">
-        <h2 class="text-xl font-semibold mb-4">Shop by Category</h2>
+{{-- CATEGORY GRID --}}
+<div class="max-w-7xl mx-auto px-4 mt-10">
+    <h2 class="text-xl font-semibold mb-4">Shop by Category</h2>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-            @foreach (['Men', 'Women', 'Kids', 'Accessories'] as $cat)
-                <div class="bg-white rounded-xl shadow hover:shadow-md transition p-5 text-center">
-                    <div class="text-lg font-medium">{{ $cat }}</div>
-                    <p class="text-sm text-gray-500 mt-1">Explore {{ strtolower($cat) }} fashion</p>
+        @php
+            $categories = [
+                ['name' => 'Men', 'route' => 'fashion.men'],
+                ['name' => 'Women', 'route' => 'fashion.women'],
+                ['name' => 'Kids', 'route' => 'fashion.kids'],
+                ['name' => 'Accessories', 'route' => 'fashion.accessories'],
+            ];
+        @endphp
+
+        @foreach ($categories as $cat)
+            <a href="{{ route($cat['route']) }}"
+               class="bg-white rounded-xl shadow hover:shadow-md transition p-5 text-center block">
+
+                <div class="text-lg font-medium">
+                    {{ $cat['name'] }}
                 </div>
-            @endforeach
 
-        </div>
+                <p class="text-sm text-gray-500 mt-1">
+                    Explore {{ strtolower($cat['name']) }} fashion
+                </p>
+
+            </a>
+        @endforeach
+
     </div>
+</div>
 
     {{-- =========================================================
         4. FEATURED PRODUCTS
