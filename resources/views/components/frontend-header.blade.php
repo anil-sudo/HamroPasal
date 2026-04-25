@@ -542,24 +542,17 @@
     <div class="hp-nav-row">
         <div class="hp-nav-inner">
 
-            {{-- LEFT: Hamburger + Logo --}}
+            {{-- LEFT --}}
             <div class="hp-nav-left">
-                <button
-                    class="hp-ham"
-                    id="mobile-menu-btn"
-                    aria-label="Toggle menu"
-                    onclick="toggleMobileMenu()"
-                >
+                <button class="hp-ham" id="mobile-menu-btn" onclick="toggleMobileMenu()">
                     <span id="ham-line-1"></span>
                     <span id="ham-line-2"></span>
                     <span id="ham-line-3"></span>
                 </button>
 
-                <a href="/" class="hp-logo">
+                <a href="{{ route('home') }}" class="hp-logo">
                     <div class="hp-logo-icon">
-                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
+                        🛒
                     </div>
                     <div class="hp-logo-text">
                         <div class="brand">
@@ -570,7 +563,7 @@
                 </a>
             </div>
 
-            {{-- CENTER: Search Bar --}}
+            {{-- CENTER SEARCH --}}
             <div class="hp-nav-center">
                 <div class="hp-search-wrap">
                     <div class="hp-search">
@@ -581,185 +574,132 @@
                             <option>Fashion</option>
                             <option>Books</option>
                         </select>
-                        <input type="text" placeholder="Search products, brands, and more…" />
-                        <button class="hp-search-btn">
-                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                            </svg>
-                        </button>
+                        <input type="text" placeholder="Search products…" />
+                        <button class="hp-search-btn">🔍</button>
                     </div>
                 </div>
             </div>
 
-            {{-- RIGHT: Actions --}}
+            {{-- RIGHT --}}
             <div class="hp-nav-right">
                 <div class="hp-actions">
 
-                    {{-- Wishlist --}}
-                    <a href="#" class="hp-icon-btn" title="Wishlist">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                        </svg>
-                        <span>Wishlist</span>
-                    </a>
+                    <a href="#" class="hp-icon-btn">❤️<span>Wishlist</span></a>
 
-                    {{-- Cart --}}
-                    <a href="#" class="hp-icon-btn" title="Cart">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
+                    <a href="#" class="hp-icon-btn">
+                        🛒
                         <span class="hp-badge">{{ $cartCount ?? 3 }}</span>
                         <span>Cart</span>
                     </a>
 
-                    {{-- Sign In (desktop) --}}
                     <a href="#" class="hp-signin">
-                        <div class="hp-signin-avatar">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                            </svg>
-                        </div>
                         <div>
                             <p class="hello">Hello, Guest</p>
                             <p class="label">Sign In</p>
                         </div>
                     </a>
 
-                    {{-- Mobile login icon --}}
-                    <a href="#" class="hp-mob-login">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </a>
                 </div>
             </div>
         </div>
 
-        {{-- Mobile Search --}}
+        {{-- MOBILE SEARCH --}}
         <div class="hp-mob-search">
             <div class="hp-mob-search-inner">
-                <input type="text" placeholder="Search products…" />
-                <button class="hp-mob-search-btn">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                    </svg>
-                </button>
+                <input type="text" placeholder="Search…" />
+                <button class="hp-mob-search-btn">🔍</button>
             </div>
         </div>
     </div>
 
-    {{-- ===== CATEGORY NAV BAR ===== --}}
+    {{-- ===== CATEGORY BAR ===== --}}
     <div class="hp-catbar">
         <div class="hp-catbar-inner">
 
-            {{-- All Categories --}}
+            {{-- ALL CATEGORIES --}}
             <div class="hp-allcat-wrap">
-                <button class="hp-allcat-btn">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    <span class="hidden sm:inline">All Categories</span>
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width:12px;height:12px">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
+                <button class="hp-allcat-btn">☰ All Categories</button>
+
                 <div class="hp-dropdown">
-                    @php
-                        $cats = [
-                            ['icon' => '📱', 'label' => 'Electronics'],
-                            ['icon' => '⚽', 'label' => 'Sports'],
-                            ['icon' => '👗', 'label' => 'Fashion'],
-                            ['icon' => '📚', 'label' => 'Books'],
-                        ];
-                    @endphp
-                    @foreach ($cats as $cat)
-                    <a href="#">
-                        <span>{{ $cat['icon'] }}</span>
-                        {{ $cat['label'] }}
-                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    @endforeach
+                    <a href="{{ route('electronics') }}">📱 Electronics</a>
+                    <a href="{{ route('sports') }}">⚽ Sports</a>
+                    <a href="{{ route('fashion') }}">👗 Fashion</a>
+                    <a href="{{ route('books') }}">📚 Books</a>
                 </div>
             </div>
 
             <div class="hp-divider"></div>
 
-            {{-- Nav links --}}
+            {{-- NAV LINKS --}}
             <nav class="hp-nav-links">
                 <div class="hp-nav-links-inner">
-                    @php
-                        $navItems = [
-                            ['label' => '⚡ Deals', 'hot' => true],
-                            ['label' => '📱 Electronics'],
-                            ['label' => '⚽ Sports'],
-                            ['label' => '👗 Fashion'],
-                            ['label' => '📚 Books'],
-                        ];
-                    @endphp
-                    @foreach ($navItems as $item)
-                    <a href="#" class="hp-nav-link {{ ($item['hot'] ?? false) ? 'hot' : '' }}">
-                        {{ $item['label'] }}
-                        @if ($item['hot'] ?? false)
-                        <span class="hp-hot-pill">Hot</span>
-                        @endif
+
+                    <a href="{{ route('deals') }}" class="hp-nav-link hot">
+                        ⚡ Deals <span class="hp-hot-pill">Hot</span>
                     </a>
-                    @endforeach
+
+                    <a href="{{ route('electronics') }}" class="hp-nav-link">
+                        📱 Electronics
+                    </a>
+
+                    <a href="{{ route('sports') }}" class="hp-nav-link">
+                        ⚽ Sports
+                    </a>
+
+                    <a href="{{ route('fashion') }}" class="hp-nav-link">
+                        👗 Fashion
+                    </a>
+
+                    <a href="{{ route('books') }}" class="hp-nav-link">
+                        📚 Books
+                    </a>
+
                 </div>
             </nav>
 
-            {{-- Track Order --}}
-            <a href="#" class="hp-track">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                </svg>
-                Track Order
-            </a>
+            {{-- TRACK --}}
+            <a href="#" class="hp-track">📦 Track Order</a>
         </div>
     </div>
 
     {{-- ===== MOBILE MENU ===== --}}
     <div class="hp-mobile-menu" id="mobile-menu">
         <div class="hp-mob-inner">
+
             <div class="hp-mob-pills">
-                <a href="#" class="hp-mob-pill">Sell on HamroPasal</a>
-                <a href="#" class="hp-mob-pill">Track Order</a>
-                <a href="#" class="hp-mob-pill">My Account</a>
+                <a href="#" class="hp-mob-pill">Sell</a>
+                <a href="#" class="hp-mob-pill">Track</a>
+                <a href="#" class="hp-mob-pill">Account</a>
             </div>
 
             <p class="hp-mob-section-label">Categories</p>
 
-            @foreach ([
-                ['icon' => '⚡', 'label' => 'Deals', 'hot' => true],
-                ['icon' => '📱', 'label' => 'Electronics'],
-                ['icon' => '⚽', 'label' => 'Sports'],
-                ['icon' => '👗', 'label' => 'Fashion'],
-                ['icon' => '📚', 'label' => 'Books'],
-            ] as $item)
-            <a href="#" class="hp-mob-item {{ ($item['hot'] ?? false) ? 'hot' : '' }}">
-                <span>{{ $item['icon'] }} {{ $item['label'] }}</span>
-                @if ($item['hot'] ?? false)
-                <span class="hp-hot-pill">Hot</span>
-                @else
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
-                @endif
+            <a href="{{ route('deals') }}" class="hp-mob-item hot">
+                ⚡ Deals <span class="hp-hot-pill">Hot</span>
             </a>
-            @endforeach
 
-            <a href="#" class="hp-mob-cta">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                </svg>
-                Sign In / Register
+            <a href="{{ route('electronics') }}" class="hp-mob-item">
+                📱 Electronics
             </a>
+
+            <a href="{{ route('sports') }}" class="hp-mob-item">
+                ⚽ Sports
+            </a>
+
+            <a href="{{ route('fashion') }}" class="hp-mob-item">
+                👗 Fashion
+            </a>
+
+            <a href="{{ route('books') }}" class="hp-mob-item">
+                📚 Books
+            </a>
+
+            <a href="#" class="hp-mob-cta">Sign In</a>
+
         </div>
     </div>
 
 </header>
-
 <script>
     function toggleMobileMenu() {
         const menu = document.getElementById('mobile-menu');

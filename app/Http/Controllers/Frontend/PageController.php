@@ -16,27 +16,29 @@ class PageController extends Controller
         return view('frontend.home');
     }
 
-    public function dokan_registration(Request $request)
+
+    public function fashion()
     {
-        $request->validate([
-            "name" => "required|max:60",
-            "email" => "required|email|unique:dokans,email",
-            "contact_no" => "required",
-            "message" => "required|max:255",
-        ]);
+         return view('categories.fashion');
+    }
 
-        $dokan = new Dokan();
-        $dokan->name = $request->name;
-        $dokan->email = $request->email;
-        $dokan->contact_no = $request->contact_no;
-        $dokan->message = $request->message;
-        $dokan->save();
-        $admins = Admin::all();
-        foreach($admins as $admin){
-            Mail::to($admin->email)->send(new DokanRequestNotification($dokan));
-        }
-        alert()->toast("Registration successful", "success");
+    public function electronics()
+    {
+         return view('categories.electronics');
+    }
 
-        return redirect()->route('home');
+    public function sports()
+    {
+         return view('categories.sports');
+    }
+
+    public function books()
+    {
+         return view('categories.books');
+    }
+
+    public function deals()
+    {
+         return view('categories.deals');
     }
 }
