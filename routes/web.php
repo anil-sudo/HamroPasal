@@ -19,4 +19,23 @@ Route::get('/fashion/accessories', [PageController::class, 'accessoriesFashion']
 
 Route::get('/fashion/men/shirts', [PageController::class, 'menShirts'])->name('fashion.men.shirts');
 
+
+
+Route::get('/electronics/mobile', [PageController::class, 'mobile'])->name('electronics.mobile');
+Route::get('/electronics/laptop', [PageController::class, 'laptop'])->name('electronics.laptop');
+Route::get('/electronics/audio', [PageController::class, 'audio'])->name('electronics.audio');
+Route::get('/electronics/accessories', [PageController::class, 'electronicsAccessories'])->name('electronics.accessories');
+
+
+Route::get('/sports/football', [PageController::class, 'football'])->name('sports.football');
+Route::get('/sports/cricket', [PageController::class, 'cricket'])->name('sports.cricket');
+Route::get('/sports/running', [PageController::class, 'running'])->name('sports.running');
+Route::get('/sports/gym', [PageController::class, 'gym'])->name('sports.gym');Route::get('/books/fiction', [PageController::class, 'fiction'])->name('books.fiction');
+
+Route::get('/books/fiction', [PageController::class, 'fiction'])->name('books.fiction');
+Route::get('/books/education', [PageController::class, 'education'])->name('books.education');
+Route::get('/books/business', [PageController::class, 'business'])->name('books.business');
+Route::get('/books/self-help', [PageController::class, 'selfHelp'])->name('books.selfhelp');
+
+
 require __DIR__.'/settings.php';

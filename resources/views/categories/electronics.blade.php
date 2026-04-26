@@ -48,12 +48,29 @@
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-            @foreach (['Mobiles', 'Laptops', 'Audio', 'Accessories'] as $cat)
-                <div class="bg-white rounded-xl shadow hover:shadow-md transition p-5 text-center">
-                    <div class="text-lg font-medium">{{ $cat }}</div>
-                    <p class="text-sm text-gray-500 mt-1">Explore {{ $cat }}</p>
+        @php
+            $categories = [
+                ['name' => 'Mobiles', 'route' => 'electronics.mobile'],
+                ['name' => 'Laptops', 'route' => 'electronics.laptop'],
+                ['name' => 'Audio', 'route' => 'electronics.audio'],
+                ['name' => 'Accessories', 'route' => 'electronics.accessories'],
+            ];
+        @endphp
+
+        @foreach ($categories as $cat)
+            <a href="{{ route($cat['route']) }}"
+            class="bg-white rounded-xl shadow hover:shadow-md transition p-5 text-center block">
+
+                <div class="text-lg font-medium">
+                    {{ $cat['name'] }}
                 </div>
-            @endforeach
+
+                <p class="text-sm text-gray-500 mt-1">
+                    Explore {{ $cat['name'] }}
+                </p>
+
+            </a>
+        @endforeach
 
         </div>
     </div>

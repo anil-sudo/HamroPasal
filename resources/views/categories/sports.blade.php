@@ -46,13 +46,30 @@
     <div class="max-w-7xl mx-auto px-4 mt-10">
         <h2 class="text-xl font-semibold mb-4">Shop by Category</h2>
 
+        @php
+            $categories = [
+                ['name' => 'Football', 'route' => 'sports.football'],
+                ['name' => 'Cricket', 'route' => 'sports.cricket'],
+                ['name' => 'Running', 'route' => 'sports.running'],
+                ['name' => 'Gym', 'route' => 'sports.gym'],
+            ];
+        @endphp
+
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-            @foreach (['Football', 'Cricket', 'Running', 'Gym'] as $cat)
-                <div class="bg-white rounded-xl shadow hover:shadow-md transition p-5 text-center">
-                    <div class="text-lg font-medium">{{ $cat }}</div>
-                    <p class="text-sm text-gray-500 mt-1">Explore {{ $cat }} gear</p>
-                </div>
+            @foreach ($categories as $cat)
+                <a href="{{ route($cat['route']) }}"
+                class="bg-white rounded-xl shadow hover:shadow-md transition p-5 text-center block">
+
+                    <div class="text-lg font-medium">
+                        {{ $cat['name'] }}
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-1">
+                        Explore {{ $cat['name'] }} gear
+                    </p>
+
+                </a>
             @endforeach
 
         </div>

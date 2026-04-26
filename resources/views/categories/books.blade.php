@@ -46,13 +46,30 @@
     <div class="max-w-7xl mx-auto px-4 mt-10">
         <h2 class="text-xl font-semibold mb-4">Book Categories</h2>
 
+        @php
+            $categories = [
+                ['name' => 'Fiction', 'route' => 'books.fiction'],
+                ['name' => 'Education', 'route' => 'books.education'],
+                ['name' => 'Business', 'route' => 'books.business'],
+                ['name' => 'Self Help', 'route' => 'books.selfhelp'],
+            ];
+        @endphp
+
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-            @foreach (['Fiction', 'Education', 'Business', 'Self Help'] as $cat)
-                <div class="bg-white rounded-xl shadow hover:shadow-md transition p-5 text-center">
-                    <div class="text-lg font-medium">{{ $cat }}</div>
-                    <p class="text-sm text-gray-500 mt-1">Explore {{ $cat }} books</p>
-                </div>
+            @foreach ($categories as $cat)
+                <a href="{{ route($cat['route']) }}"
+                class="bg-white rounded-xl shadow hover:shadow-md transition p-5 text-center block">
+
+                    <div class="text-lg font-medium">
+                        {{ $cat['name'] }}
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-1">
+                        Explore {{ $cat['name'] }} books
+                    </p>
+
+                </a>
             @endforeach
 
         </div>

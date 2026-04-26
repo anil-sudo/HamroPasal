@@ -67,4 +67,65 @@ class PageController extends Controller
      {
            return view('categories.fashion.men.t-shirt');
      }
+
+
+     public function mobile()
+               {
+               return view('categories.electronics.mobile');
+               }
+
+
+     public function laptop()
+          {
+          return view('categories.electronics.laptop');
+          }
+
+     public function audio()
+          {
+          return view('categories.electronics.audio');
+}
+
+     public function electronicsAccessories()
+          {
+          return view('categories.electronics.accessories');
+          }
+
+     public function football()
+          {
+          return view('categories.sports.football');
+}
+
+
+     public function cricket()
+          {
+          return view('categories.sports.cricket');
+          }
+
+     public function running()
+          {
+          return view('categories.sports.running');
+          }
+
+     public function gym()
+          {
+          return view('categories.sports.gym');
+          }
+
+
+     public function fiction()
+          {
+               return view('categories.books.fiction');
+          }
+      public function education()
+          {
+               return view('categories.books.education');
+          }
+      public function business()
+          {
+               return view('categories.books.business');
+          }
+      public function selfHelp()
+          {
+               return view('categories.books.selfhelp');
+          }
 }
