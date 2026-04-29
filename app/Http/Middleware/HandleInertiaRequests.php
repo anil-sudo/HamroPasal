@@ -48,6 +48,11 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $user
             ],
+            'cart' => [
+                'count' => 0,
+                'items' => [
+                ],
+            ],
             'sidebarOpen' => filter_var(
                 $request->cookie('sidebar_state', 'true'),
                 FILTER_VALIDATE_BOOLEAN
