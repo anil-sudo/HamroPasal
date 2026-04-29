@@ -19,6 +19,7 @@ class CategoryInfolist
                     ->numeric()
                     ->placeholder('-'),
                 ImageEntry::make('image')
+                    ->disk('public')
                     ->placeholder('-'),
                 TextEntry::make('description')
                     ->placeholder('-'),

@@ -19,14 +19,9 @@ class CategoriesTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
-                TextColumn::make('parent_id')
-                    ->numeric()
-                    ->sortable(),
-                ImageColumn::make('image'),
-                TextColumn::make('description')
-                    ->searchable(),
+                ImageColumn::make('image')
+                    ->disk('public'),
+                    
                 IconColumn::make('status')
                     ->boolean(),
                 TextColumn::make('created_at')

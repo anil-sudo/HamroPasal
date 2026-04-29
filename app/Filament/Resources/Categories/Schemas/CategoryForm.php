@@ -37,8 +37,8 @@ class CategoryForm
                     ->image()
                     ->disk('public')
                     ->directory('categories')
-                    ->imageEditor()
-                    ->columnSpanFull(),
+                    ->nullable()
+                    ->storeFileNamesIn('image'),
 
                 RichEditor::make('description')
                     ->label('Description')
