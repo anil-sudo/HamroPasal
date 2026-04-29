@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Products\Schemas;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class ProductForm
@@ -40,6 +41,24 @@ class ProductForm
                     ->default(0),
                 TextInput::make('thumbnail')
                     ->default(null),
+                FileUpload::make('gallery')
+                    ->label('Gallery Images')
+                    ->image()
+                    ->multiple()
+                    ->imageEditor()
+                    ->openable()
+                    ->downloadable()
+                    ->previewable()
+                    ->deletable()
+                    ->disk('public')
+                    ->directory('media/product')
+                    ->required()
+                    ->panelLayout('grid')
+                    ->reorderable()
+                    ->appendFiles()
+                    ->minFiles(2)
+                    ->maxFiles(5),
+
                 Toggle::make('status')
                     ->required(),
             ]);

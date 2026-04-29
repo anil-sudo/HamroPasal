@@ -19,6 +19,13 @@ class CategoriesTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+
+                TextColumn::make('parent.name')
+                    ->searchable(),
+
+                TextColumn::make('children.name')
+                    ->searchable(),
+
                 ImageColumn::make('image')
                     ->disk('public'),
                     

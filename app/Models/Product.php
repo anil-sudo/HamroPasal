@@ -16,9 +16,15 @@ class Product extends Model
         'discount_price',
         'stock',
         'thumbnail',
+        'gallery',
         'status',
     ];
 
+
+    protected $casts = [
+        'gallery' => 'array',
+    ];
+    
     // Category
     public function category()
     {
